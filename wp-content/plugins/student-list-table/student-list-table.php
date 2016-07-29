@@ -1,12 +1,12 @@
 <?php 
+/*
+Plugin Name: Student List Table
+Plugin URI: localhost
+Description: WP List Table for student
+Version: 0.1
+Author: Moretti Georgiev
+*/
 
-
-/**
- * Plugin Name: Student List Table
- * Description: WP List Table for student
- * Author URI: http://jeromedumodizon.com/
- * Version: 0.1
- */
 
 if( ! class_exists( 'WP_List_Table' ) ) {
     require_once( ABSPATH . 'wp-admin/includes/class-wp-list-table.php' );
@@ -31,9 +31,9 @@ class Student_List_Table extends WP_List_Table {
 		$this->_column_headers = array($columns);
 
 		$args = array(
+			'sort_by' => 'ID',
 			'post_type' => 'student',
 			'post_status' => 'publish',
-			'sort_by' => 'ID',
 			'posts_per_page' => -1
 		);
 
@@ -54,11 +54,11 @@ class Student_List_Table extends WP_List_Table {
 		foreach ($this->items as $item) {
 		?>
 			<tr>
-				<td class="student_id column-student_id" data-colname="Id"> <?php echo $item['id'] ?> </td>
-				<td class="student_name column-student_name" data-colname="Name"> <?php echo $item['name'] ?> </td>
-				<td class="student_year column-student_year" data-colname="Year"> <?php echo $item['year'] ?> </td>
-				<td class="student_section column-student_section" data-colname="Section"> <?php echo $item['section'] ?> </td>
-				<td class="student_address column-student_address" data-colname="Address"> <?php echo $item['address'] ?> </td>
+				<td class="student_id column-student_id"> <?php echo $item['id'] ?> </td>
+				<td class="student_name column-student_name"> <?php echo $item['name'] ?> </td>
+				<td class="student_year column-student_year"> <?php echo $item['year'] ?> </td>
+				<td class="student_section column-student_section"> <?php echo $item['section'] ?> </td>
+				<td class="student_address column-student_address"> <?php echo $item['address'] ?> </td>
 			</tr>
 		<?php
 		}
